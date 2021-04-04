@@ -1,0 +1,14 @@
+import("//src/sys/build/components.gni")
+
+group("hello_world") {
+  deps = [ ":jeff-hello-world-cpp" ]
+}
+
+executable("bin") {
+  output_name = "my_hello_world_cpp"
+  sources = [ "hello_world.cc" ]
+}
+
+fuchsia_package("jeff-hello-world-cpp") {
+  deps = [ ":bin" ]
+}
